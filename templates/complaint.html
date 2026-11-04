@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow border-0 p-4 max-w-800 mx-auto bg-white text-dark">
+    <div class="alert alert-warning fw-bold mb-4">
+        🔒 Бұл бөлім 100% анонимді. Жеке деректеріңіз сақталмайды.
+    </div>
+    <h2 class="text-danger fw-bold mb-4">🛡️ Анонимді шағым немесе антикор файлдарын тіркеу</h2>
+    <form action="/complaint" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Шағымның толық мәтіні</label>
+            <textarea name="description" class="form-control" rows="8" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">Дәлелдемелерді тіркеу (Видео, Аудио, Сурет, PDF)</label>
+            <input type="file" name="file" class="form-control" accept="image/*,video/*,audio/*,.pdf">
+        </div>
+        <button type="submit" class="btn btn-danger w-100 mt-4 btn-lg text-white fw-bold">Анонимді түрде жіберу</button>
+    </form>
+</div>
+{% endblock %}

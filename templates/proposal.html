@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow border-0 p-4 max-w-800 mx-auto bg-white text-dark">
+    <h2 class="text-primary fw-bold mb-4">💡 Стартап немесе Ұсыныс жіберу</h2>
+    <form action="/proposal" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Ұсыныстың тақырыбы</label>
+            <input type="text" name="title" class="form-control" required placeholder="Мысалы: Smart Campus жобасы">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">Түсіндірме (2000 жолға дейін)</label>
+            <textarea name="description" class="form-control" rows="8" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">PDF Презентацияны жүктеу</label>
+            <input type="file" name="file" class="form-control" accept=".pdf">
+        </div>
+        <hr class="my-4">
+        <h5 class="fw-bold mb-3">Автордың жеке деректері</h5>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Аты-жөні</label>
+                <input type="text" name="full_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Телефон нөмірі</label>
+                <input type="tel" name="phone" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Факультет</label>
+                <input type="text" name="faculty" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Мамандығы</label>
+                <input type="text" name="specialty" class="form-control" required>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Электронды пошта (Email)</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-4 btn-lg fw-bold">Ұсынысты жіберу</button>
+    </form>
+</div>
+{% endblock %}
