@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-banner p-4 p-md-5 mb-5 rounded-4 shadow-lg text-white">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-5 text-center">
+            <div class="mascot-interactive-box">
+                <img src="{{ url_for('static', filename='images/IMG_1640 (1).PNG') }}" id="samgauInteractive" alt="Самғау Амбассадор" class="img-fluid samgau-cheer-anim">
+                <div class="speech-bubble-bottom" data-lang-kz="🦅 Сәлем, Дулати жастары!" data-lang-ru="🦅 Привет, молодежь Дулати!" data-lang-en="🦅 Hello, Dulaty youth!">🦅 Сәлем, Дулати жастары!</div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <h1 class="display-5 fw-bold mb-3 text-white">
+                <span data-lang-kz="Менің атым —" data-lang-ru="Меня зовут —" data-lang-en="My name is —">Менің атым —</span>
+                <span class="text-gold">Самғау</span>
+            </h1>
+            <p class="fs-5 fw-normal text-white mb-4 lh-base" data-lang-kz="Мен — М. Х. Дулати атындағы Тараз университетінің Ресми Амбассадорымын. Университетіміздің болашағын бірге құру үшін төмендегі бағыттардың бірін таңдаңыз." data-lang-ru="Я — Официальный Амбассадор Таразского регионального университета им. М.Х. Дулати. Выберите одно из направлений ниже, чтобы вместе строить будущее нашего университета." data-lang-en="I am the Official Ambassador of M.Kh. Dulaty Taraz Regional University. Choose one of the options below to shape the future of our university together.">
+                Мен — М. Х. Дулати атындағы Тараз университетінің <strong>Ресми Амбассадорымын</strong>. Университетіміздің болашағын бірге құру үшін төмендегі бағыттардың бірін таңдаңыз.
+            </p>
+
+            <!-- Телефон арқылы сканерлеуге арналған QR-код батырмасы -->
+            <button class="btn btn-outline-light fw-bold px-4 py-2 rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#qrModal">
+                📱 Телефонмен кіру (QR-код)
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 justify-content-center mb-5">
+    <div class="col-12 col-md-6">
+        <div class="card h-100 border-0 shadow-sm custom-action-card p-4">
+            <div class="card-icon text-primary mb-3 fs-1">💡</div>
+            <h3 class="fw-bold" data-lang-kz="Ұсыныс & Стартап қалдыру" data-lang-ru="Подать Предложение & Стартап" data-lang-en="Submit Proposal & Startup">Ұсыныс &amp; Стартап қалдыру</h3>
+            <p class="text-secondary fs-6 mb-4" data-lang-kz="Университетті дамытуға арналған жаңа идеяңыз немесе дайын стартап жобаңыз бар ма? Толық сипаттап, PDF презентациясын тіркеңіз." data-lang-ru="Есть новая идея или готовый стартап-проект для развития университета? Опишите подробнее и прикрепите PDF-презентацию." data-lang-en="Have a new idea or startup project for university development? Describe it in detail and attach your PDF presentation.">
+                Университетті дамытуға арналған жаңа идеяңыз немесе дайын стартап жобаңыз бар ма? Толық сипаттап, PDF презентациясын тіркеңіз.
+            </p>
+            <a href="/proposal" class="btn btn-dulaty-primary btn-lg mt-auto w-100 fw-bold" data-lang-kz="Ұсыныс жіберу →" data-lang-ru="Отправить предложение →" data-lang-en="Submit Proposal →">
+                Ұсыныс жіберу →
+            </a>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+        <div class="card h-100 border-0 shadow-sm custom-action-card p-4">
+            <div class="card-icon text-danger mb-3 fs-1">🛡️</div>
+            <h3 class="fw-bold" data-lang-kz="Анонимді Шағым қалдыру" data-lang-ru="Оставить Анонимную Жалобу" data-lang-en="Submit Anonymous Complaint">Анонимді Шағым қалдыру</h3>
+            <p class="text-secondary fs-6 mb-4" data-lang-kz="Сыбайлас жемқорлық немесе құқық бұзушылық деректерін толық анонимді түрде видео, аудио, фото немесе PDF түрінде жіберіңіз." data-lang-ru="Отправляйте факты коррупции или нарушений полностью анонимно в виде видео, аудио, фото или PDF." data-lang-en="Send facts of corruption or violations completely anonymously in the form of video, audio, photo, or PDF.">
+                Сыбайлас жемқорлық немесе құқық бұзушылық деректерін толық анонимді түрде видео, аудио, фото немесе PDF түрінде жіберіңіз.
+            </p>
+            <a href="/complaint" class="btn btn-dulaty-danger btn-lg mt-auto w-100 fw-bold text-white" data-lang-kz="Шағым қалдыру →" data-lang-ru="Оставить жалобу →" data-lang-en="Submit Complaint →">
+                Шағым қалдыру →
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Модалды терезе (Серверден жіберілген нақты сетевой IP арқылы QR жасайды) -->
+<div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4 rounded-4">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold">📱 Телефонмен кіру (QR-Код)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted small">Телефон мен компьютер бір Wi-Fi желісінде қосулы болуы тиіс:</p>
+                <div class="p-3 bg-light rounded-3 d-inline-block shadow-sm mb-3">
+                    <img id="qrImage" src="" alt="QR Code" class="img-fluid" style="width: 220px; height: 220px;">
+                </div>
+                <div class="font-monospace text-primary fw-bold" id="siteUrlText"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Серверден келген нақты Wi-Fi IP сілтемесін алу
+        const serverUrl = "{{ server_url }}";
+        document.getElementById("siteUrlText").innerText = serverUrl;
+        document.getElementById("qrImage").src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodeURIComponent(serverUrl);
+    });
+</script>
+{% endblock %}

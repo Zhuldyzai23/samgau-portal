@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-white p-4 rounded-4 shadow-sm border text-dark">
+    <h2 class="fw-bold text-danger mb-4">🛡️ Комплаенс қызметі: Анонимді шағымдар</h2>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Сипаттамасы</th>
+                    <th>Уақыты</th>
+                    <th>Дәлелдеме файл</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in complaints %}
+                <tr>
+                    <td>#{{ c[0] }}</td>
+                    <td style="max-width: 400px;">{{ c[1] }}</td>
+                    <td>{{ c[3] }}</td>
+                    <td>
+                        {% if c[2] %}
+                        <a href="/{{ c[2] }}" target="_blank" class="btn btn-sm btn-outline-danger">Файлды көру</a>
+                        {% else %} Жоқ {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
