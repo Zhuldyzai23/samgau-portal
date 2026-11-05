@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Логотип дизайны */
+.logo-circle-container {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brand-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.brand-title { font-size: 1.1rem; }
+.brand-subtitle { font-size: 0.68rem; }
+
+.bg-dulaty-navy {
+    background: #0a2540 !important;
+}
+
+/* Басты баннер */
+.hero-banner {
+    background: linear-gradient(135deg, #0a2540 0%, #104071 60%, #1e5fa8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.text-gold {
+    color: #ffc107 !important;
+}
+
+/* ✅ БҮРКІТТІҢ ТҮСІ ТАЗА, АП-АШЫҚ ЖӘНЕ ЕШҚАНДАЙ САРҒЫШТЫҚ ЖОҚ */
+.samgau-cheer-anim {
+    max-height: 350px;
+    width: 100%;
+    object-fit: contain;
+    animation: cheerJump 1.2s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    /* Ешқандай бұрмалаушы фильтр жоқ — видеоның өз түсі дәл сол күйінде табиғи шығады */
+    filter: none;
+}
+
+@keyframes cheerJump {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
+    100% { transform: translateY(0px) scale(0.98); }
+}
+
+.mascot-interactive-box {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.speech-bubble-bottom {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffc107;
+    color: #000;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    animation: floatBubble 2s infinite ease-in-out;
+    z-index: 10;
+}
+
+@keyframes floatBubble {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+/* Карточкалар мен батырмалар */
+.custom-action-card {
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-dulaty-primary {
+    background-color: #0a2540;
+    color: #ffffff;
+    border: none;
+}
+.btn-dulaty-primary:hover {
+    background-color: #153e66;
+    color: #fff;
+}
+
+.btn-dulaty-danger {
+    background-color: #d9381e;
+    color: #ffffff;
+    border: none;
+}
+.btn-dulaty-danger:hover {
+    background-color: #b82b14;
+    color: #fff;
+}
+
+/* ТҮНГІ РЕЖИМ ТҮЗЕТУ */
+[data-bs-theme="dark"] body {
+    background-color: #121212;
+    color: #e4e4e4;
+}
+
+[data-bs-theme="dark"] .card,
+[data-bs-theme="dark"] .custom-action-card {
+    background-color: #1e1e1e !important;
+    color: #f1f1f1 !important;
+    border-color: #333 !important;
+}
+
+[data-bs-theme="dark"] .card h3,
+[data-bs-theme="dark"] .card h2,
+[data-bs-theme="dark"] .card h5,
+[data-bs-theme="dark"] .card .fw-bold {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .card p,
+[data-bs-theme="dark"] .card .text-secondary,
+[data-bs-theme="dark"] .card .text-muted {
+    color: #b0b0b0 !important;
+}
+
+[data-bs-theme="dark"] .table {
+    color: #e4e4e4;
+}
+
+[data-bs-theme="dark"] .table-light,
+[data-bs-theme="dark"] .table thead {
+    background-color: #2a2a2a !important;
+    color: #f1f1f1;
+}
+
+[data-bs-theme="dark"] .table-hover tbody tr:hover {
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .alert-success {
+    background-color: #1b4d2e;
+    color: #d4edda;
+    border-color: #2a6e3f;
+}
+
+[data-bs-theme="dark"] .alert-danger {
+    background-color: #5a1a1a;
+    color: #f8d7da;
+    border-color: #7a2a2a;
+}
+
+[data-bs-theme="dark"] .alert-warning {
+    background-color: #5a4a1a;
+    color: #fff3cd;
+    border-color: #7a6a2a;
+}
+
+[data-bs-theme="dark"] .bg-body-tertiary {
+    background-color: #1a1a1a !important;
+}
+
+[data-bs-theme="dark"] footer {
+    color: #999 !important;
+    border-color: #333 !important;
+}
+
+[data-bs-theme="dark"] .modal-content {
+    background-color: #1e1e1e;
+    color: #e4e4e4;
+}
+
+[data-bs-theme="dark"] .modal-content .bg-light {
+    background-color: #2a2a2a !important;
+}
+
+[data-bs-theme="dark"] .text-dark {
+    color: #e4e4e4 !important;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: #2a2a2a;
+    color: #e4e4e4;
+    border-color: #444;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: #333;
+    color: #fff;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+[data-bs-theme="dark"] .form-label {
+    color: #e4e4e4;
+}
+
+[data-bs-theme="dark"] .dropdown-menu {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+[data-bs-theme="dark"] .dropdown-item {
+    color: #e4e4e4;
+}
+
+[data-bs-theme="dark"] .dropdown-item:hover {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.max-w-800 { max-width: 800px; }
+.max-w-400 { max-width: 400px; }

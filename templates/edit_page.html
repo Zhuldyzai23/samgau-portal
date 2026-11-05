@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold m-0 text-dark">Редактирование Page</h2>
+    <a href="/admin/pages" class="btn btn-outline-secondary">Отмена</a>
+</div>
+
+<form action="" method="POST">
+    <div class="row g-4">
+        <div class="col-md-7">
+            <div class="card p-4 shadow-sm border-0 mb-4 bg-white text-dark">
+                <h5 class="fw-bold mb-3">Page</h5>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Slug*</label>
+                    <input type="text" name="slug" class="form-control" value="{{ page[1] if page else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Section*</label>
+                    <input type="text" name="section" class="form-control" value="{{ page[2] if page else 'About us' }}" required>
+                </div>
+            </div>
+
+            <div class="card p-4 shadow-sm border-0 bg-white text-dark">
+                <h5 class="fw-bold mb-3">Содержание (Body HTML)</h5>
+                <div class="mb-3">
+                    <label class="form-label">Body (RU)</label>
+                    <textarea name="body_ru" class="form-control font-monospace" rows="4">{{ page[6] if page else '' }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Body (KK)</label>
+                    <textarea name="body_kk" class="form-control font-monospace" rows="4">{{ page[7] if page else '' }}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Body (EN)</label>
+                    <textarea name="body_en" class="form-control font-monospace" rows="4">{{ page[8] if page else '' }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card p-4 shadow-sm border-0 mb-4 bg-white text-dark">
+                <h5 class="fw-bold mb-3">Titles</h5>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Title (RU)*</label>
+                    <input type="text" name="title_ru" class="form-control" value="{{ page[3] if page else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Title (KK)*</label>
+                    <input type="text" name="title_kk" class="form-control" value="{{ page[4] if page else '' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Title (EN)*</label>
+                    <input type="text" name="title_en" class="form-control" value="{{ page[5] if page else '' }}" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Сохранить</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

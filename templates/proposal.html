@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow border-0 p-4 max-w-800 mx-auto bg-white text-dark">
+    <h2 class="text-primary fw-bold mb-4"
+        data-lang-kz="💡 Стартап немесе Ұсыныс жіберу"
+        data-lang-ru="💡 Подать стартап или предложение"
+        data-lang-en="💡 Submit a Startup or Proposal">
+        💡 Стартап немесе Ұсыныс жіберу
+    </h2>
+    <form action="/proposal" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label fw-bold"
+                   data-lang-kz="Ұсыныстың тақырыбы"
+                   data-lang-ru="Тема предложения"
+                   data-lang-en="Proposal Title">Ұсыныстың тақырыбы</label>
+            <input type="text" name="title" class="form-control" required placeholder="Мысалы: Smart Campus жобасы">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold"
+                   data-lang-kz="Түсіндірме (2000 жолға дейін)"
+                   data-lang-ru="Описание (до 2000 символов)"
+                   data-lang-en="Description (up to 2000 characters)">Түсіндірме (2000 жолға дейін)</label>
+            <textarea name="description" class="form-control" rows="8" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">
+                <span data-lang-kz="PDF Презентацияны жүктеу" data-lang-ru="Загрузить PDF-презентацию" data-lang-en="Upload PDF Presentation">PDF Презентацияны жүктеу</span>
+                <span class="text-danger">*</span>
+            </label>
+            <input type="file" name="file" class="form-control" accept=".pdf" required>
+            <div class="form-text text-danger"
+                 data-lang-kz="Бұл өріс міндетті — файл тіркемейінше жіберілмейді."
+                 data-lang-ru="Это поле обязательно — без прикрепления файла отправка невозможна."
+                 data-lang-en="This field is required — submission is not allowed without attaching a file.">Бұл өріс міндетті — файл тіркемейінше жіберілмейді.</div>
+        </div>
+        <hr class="my-4">
+        <h5 class="fw-bold mb-3"
+            data-lang-kz="Автордың жеке деректері"
+            data-lang-ru="Личные данные автора"
+            data-lang-en="Author's Personal Information">Автордың жеке деректері</h5>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label" data-lang-kz="Аты-жөні" data-lang-ru="ФИО" data-lang-en="Full Name">Аты-жөні</label>
+                <input type="text" name="full_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" data-lang-kz="Телефон нөмірі" data-lang-ru="Номер телефона" data-lang-en="Phone Number">Телефон нөмірі</label>
+                <input type="tel" name="phone" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" data-lang-kz="Мектеп" data-lang-ru="Школа / Высшая школа" data-lang-en="School">Мектеп</label>
+                <select name="faculty" id="faculty" class="form-control" required>
+                    <option value="" disabled selected data-lang-kz="Мектепті таңдаңыз..." data-lang-ru="Выберите школу..." data-lang-en="Select school...">Мектепті таңдаңыз...</option>
+                    <option value="Инженерия және тұрақты даму жоғары мектебі">Инженерия және тұрақты даму жоғары мектебі</option>
+                    <option value="Индустрия және цифрлық технологиялар жоғары мектебі">Индустрия және цифрлық технологиялар жоғары мектебі</option>
+                    <option value="Педагогика және психология жоғары мектебі">Педагогика және психология жоғары мектебі</option>
+                    <option value="Әлеуметтік-гуманитарлық ғылымдар жоғары мектебі">Әлеуметтік-гуманитарлық ғылымдар жоғары мектебі</option>
+                    <option value="Құқық, бизнес және басқару жоғары мектебі">Құқық, бизнес және басқару жоғары мектебі</option>
+                    <option value="Дене шынықтыру және алғашқы әскери дайындық жоғары мектебі">Дене шынықтыру және алғашқы әскери дайындық жоғары мектебі</option>
+                    <option value="Дулати колледжі">Дулати колледжі</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" data-lang-kz="Курсы" data-lang-ru="Курс" data-lang-en="Course">Курсы</label>
+                <select name="specialty" id="specialty" class="form-control" required>
+                    <option value="" disabled selected data-lang-kz="Курсты таңдаңыз..." data-lang-ru="Выберите курс..." data-lang-en="Select course...">Курсты таңдаңыз...</option>
+                    <option value="1-курс" data-lang-kz="1-курс" data-lang-ru="1 курс" data-lang-en="1st Course">1-курс</option>
+                    <option value="2-курс" data-lang-kz="2-курс" data-lang-ru="2 курс" data-lang-en="2nd Course">2-курс</option>
+                    <option value="3-курс" data-lang-kz="3-курс" data-lang-ru="3 курс" data-lang-en="3rd Course">3-курс</option>
+                    <option value="4-курс" data-lang-kz="4-курс" data-lang-ru="4 курс" data-lang-en="4th Course">4-курс</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label class="form-label" data-lang-kz="Электронды пошта (Email)" data-lang-ru="Электронная почта (Email)" data-lang-en="Email Address">Электронды пошта (Email)</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-4 btn-lg fw-bold"
+                data-lang-kz="Ұсынысты жіберу"
+                data-lang-ru="Отправить предложение"
+                data-lang-en="Submit Proposal">Ұсынысты жіберу</button>
+    </form>
+</div>
+{% endblock %}

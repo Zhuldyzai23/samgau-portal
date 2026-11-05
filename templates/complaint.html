@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow border-0 p-4 max-w-800 mx-auto bg-white text-dark">
+    <div class="alert alert-warning fw-bold mb-4"
+         data-lang-kz="🔒 Бұл бөлім 100% анонимді. Жеке деректеріңіз сақталмайды."
+         data-lang-ru="🔒 Этот раздел на 100% анонимен. Ваши личные данные не сохраняются."
+         data-lang-en="🔒 This section is 100% anonymous. Your personal data is not saved.">
+        🔒 Бұл бөлім 100% анонимді. Жеке деректеріңіз сақталмайды.
+    </div>
+    <h2 class="text-danger fw-bold mb-4"
+        data-lang-kz="🛡️ Анонимді шағым немесе антикор файлдарын тіркеу"
+        data-lang-ru="🛡️ Анонимная жалоба или антикоррупционные файлы"
+        data-lang-en="🛡️ Anonymous Complaint or Anticorruption File Upload">
+        🛡️ Анонимді шағым немесе антикор файлдарын тіркеу
+    </h2>
+    <form action="/complaint" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label fw-bold"
+                   data-lang-kz="Шағымның толық мәтіні"
+                   data-lang-ru="Полный текст жалобы"
+                   data-lang-en="Full Complaint Text">Шағымның толық мәтіні</label>
+            <textarea name="description" class="form-control" rows="8" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-bold">
+                <span data-lang-kz="Дәлелдемелерді тіркеу (Видео, Аудио, Сурет, PDF)"
+                      data-lang-ru="Прикрепить доказательства (Видео, Аудио, Фото, PDF)"
+                      data-lang-en="Attach Evidence (Video, Audio, Image, PDF)">Дәлелдемелерді тіркеу (Видео, Аудио, Сурет, PDF)</span>
+                <span class="text-danger">*</span>
+            </label>
+            <input type="file" name="file" class="form-control" accept="image/*,video/*,audio/*,.pdf" required>
+            <div class="form-text text-danger"
+                 data-lang-kz="Бұл өріс міндетті — дәлелдеме файл тіркемейінше шағым жіберілмейді."
+                 data-lang-ru="Это поле обязательно — без прикрепления доказательств жалоба не будет отправлена."
+                 data-lang-en="This field is required — complaint cannot be submitted without an evidence file.">Бұл өріс міндетті — дәлелдеме файл тіркемейінше шағым жіберілмейді.</div>
+        </div>
+        <button type="submit" class="btn btn-danger w-100 mt-4 btn-lg text-white fw-bold"
+                data-lang-kz="Анонимді түрде жіберу"
+                data-lang-ru="Отправить анонимно"
+                data-lang-en="Submit Anonymously">Анонимді түрде жіберу</button>
+    </form>
+</div>
+{% endblock %}

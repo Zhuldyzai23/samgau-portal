@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold m-0 text-dark">Pages</h2>
+        <span class="text-muted">Pages > Список</span>
+    </div>
+    <a href="/admin/pages/create" class="btn btn-primary fw-bold">+ Создать</a>
+</div>
+
+<div class="bg-white shadow-sm rounded-4 p-3 border">
+    <table class="table table-hover align-middle m-0">
+        <thead class="table-light">
+            <tr>
+                <th>Title (RU)</th>
+                <th>Section</th>
+                <th>Slug</th>
+                <th>Published</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pages %}
+            <tr>
+                <td class="fw-bold">{{ p[3] }}</td>
+                <td><span class="badge bg-light text-primary border">{{ p[2] }}</span></td>
+                <td><code>{{ p[1] }}</code></td>
+                <td><span class="badge bg-success-subtle text-success">✔ Published</span></td>
+                <td>
+                    <a href="/admin/pages/edit/{{ p[0] }}" class="btn btn-sm btn-outline-primary">Редактировать</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
